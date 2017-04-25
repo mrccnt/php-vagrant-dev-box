@@ -1,4 +1,4 @@
-# PHP VagrantDeveloper Box
+# PHP Vagrant Developer Box
 
 Goal of this little project was to have a full Ubuntu 16.04 / PHP 7.0 based LAMP stack. In fact it is a pretty good
 installation guide on how to set up all those things.
