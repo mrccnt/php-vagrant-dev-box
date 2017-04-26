@@ -183,8 +183,8 @@ The virtualhost config enables this directory to be used along with apaches x-se
 
 ### Logs
 
-The collected logs in the directory `log` will be automatically rotated on a daily basis using ubuntus `logrotate`
-mechanism. Files will be kept for 7 days.
+The collected logs will be automatically rotated on a daily basis using ubuntus `logrotate` mechanism. Files will be
+kept for 7 days.
 
 ### Temp
 
@@ -206,4 +206,4 @@ password), check this known bug. It has to do with the generated `ubuntu` user i
     
     (You are ready to ssh using credentials)
 
-May someday they get that bug fixed. Check in certain intervalls.
+Maybe someday they get that bug fixed. Check in certain intervalls.

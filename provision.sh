@@ -74,3 +74,10 @@ apt-get -qq install -y nodejs
 npm install -g grunt-cli
 
 composer install --no-progress --no-suggest --optimize-autoloader --working-dir /var/www/development/application
+
+clear
+
+echo "---------------------------------------------------------"
+echo "http://localhost:8080"
+echo "---------------------------------------------------------"
+echo ""
