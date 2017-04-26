@@ -160,17 +160,42 @@ The database is set up to listen on public network which means we can reach the 
 
 ## Directory Structure
 
-    TODO: ...
+    development
+    ├── application
+    │   ├── public
+    │   └── src
+    ├── cache
+    ├── downloads
+    ├── log
+    └── temp
 
-## Log Rotation
+### Application
 
-    TODO: ...
+Your complete PHP application. The virtualhost is configured to point at `application/public`.
+
+### Cache
+
+If you are using any caching systems, just point to this directory as file storage.
+
+### Downloads
+
+The virtualhost config enables this directory to be used along with apaches x-sendfile module.
+
+### Logs
+
+The collected logs in the directory `log` will be automatically rotated on a daily basis using ubuntus `logrotate`
+mechanism. Files will be kept for 7 days.
+
+### Temp
+
+The php.ini variables `sys_temp_dir` and `upload_tmp_dir` are pointing to this directory.
 
 ## Known Bug
 
-When encountering problems connecting to the box in any other way than `vagrant ssh`, check this known bug:
+When encountering problems connecting to the box in any other way than `vagrant ssh` (for example ssh using username and
+password), check this known bug. It has to do with the generated `ubuntu` user in Canonicals official box:
 
-[Enable default SSH login](https://bugs.launchpad.net/cloud-images/+bug/1569237)
+[Default SSH login via Username/Password](https://bugs.launchpad.net/cloud-images/+bug/1569237)
 
     vagrant ssh
     sudo passwd -d -u ubuntu
@@ -178,4 +203,7 @@ When encountering problems connecting to the box in any other way than `vagrant 
     exit
     vagrant ssh
     (You will be promped for a new password and get disconnected)
-    (Done)
+    
+    (You are ready to ssh using credentials)
+
+May someday they get that bug fixed. Check in certain intervalls.
