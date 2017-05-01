@@ -4,8 +4,9 @@ apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74C
 add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirror.klaus-uwe.me/mariadb/repo/10.1/ubuntu xenial main'
 
 apt-get update -y
+apt-get upgrade -y
 
-apt-get -qq install -y git gettext curl vim ccze software-properties-common zip unzip wget imagemagick ant ant-contrib crudini
+apt-get -qq install -y git gettext curl vim ccze software-properties-common zip unzip rar unrar wget imagemagick ant ant-contrib crudini
 
 debconf-set-selections <<< 'mariadb-server mysql-server/root_password password root'
 debconf-set-selections <<< 'mariadb-server mysql-server/root_password_again password root'
@@ -57,7 +58,7 @@ echo "extension=apc.so" >> /etc/php/7.0/mods-available/apcu.ini
 crudini --set /etc/php/7.0/mods-available/apcu.ini "" apc.enable On
 crudini --set /etc/php/7.0/mods-available/apcu.ini "" apc.enable_cli On
 
-ln -s /var/www/development/virtualhost.conf /etc/apache2/sites-enabled/develop_dev.conf
+ln -s /var/www/development/virtualhost.conf /etc/apache2/sites-enabled/develop.conf
 sed -i 's/www-data/ubuntu/g' /etc/apache2/envvars
 /etc/init.d/apache2 restart
 cp /var/www/development/logrotate /etc/logrotate.d/devbox
@@ -71,9 +72,10 @@ mv phing-latest.phar /usr/local/bin/phing
 curl -sL https://deb.nodesource.com/setup_7.x | bash -
 apt-get -qq install -y nodejs
 
-npm install -g grunt-cli
+# npm install -g grunt-cli
 
-composer install --no-progress --no-suggest --optimize-autoloader --working-dir /var/www/development/application
+# composer install --no-progress --no-suggest --optimize-autoloader --working-dir /var/www/development/app/api
+# composer install --no-progress --no-suggest --optimize-autoloader --working-dir /var/www/development/app/application
 
 clear
 

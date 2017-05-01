@@ -8,8 +8,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :path => "provision.sh"
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--name", "PHP Developer Box"]
-    vb.customize ["modifyvm", :id, "--cpus", "2"]
-    vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.customize ["modifyvm", :id, "--cpus", "4"]
+    vb.customize ["modifyvm", :id, "--memory", "4096"]
     vb.gui = false
   end
 end

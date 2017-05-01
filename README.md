@@ -138,7 +138,6 @@ The database is set up to listen on public network which means we can reach the 
 ## Dev Tools
 
  + Node.js 7
- + Grunt CLI (global)
  + Composer (global)
  + Phing (global)
  + Git
@@ -151,8 +150,8 @@ The database is set up to listen on public network which means we can reach the 
  + curl
  + vim
  + ccze
- + zip
- + unzip
+ + zip / unzip
+ + rar / unrar
  + wget
  + imagemagick
  + crudini
@@ -160,42 +159,28 @@ The database is set up to listen on public network which means we can reach the 
 
 ## Directory Structure
 
+I prefer having a whole project root directory instead of several single application roots. This forces to think more in
+"libraries" than in "applications" (sharing resources etc).
+
     development
-    ├── application
-    │   ├── public
-    │   └── src
+    ├── app
+    │   ├── api             # Disabled in virtualhost
+    │   │   ├── public
+    │   │   └── src
+    │   └── application
+    │       ├── public
+    │       └── src
     ├── cache
     ├── downloads
     ├── log
     └── temp
 
-### Application
-
-Your complete PHP application. The virtualhost is configured to point at `application/public`.
-
-### Cache
-
-If you are using any caching systems, just point to this directory as file storage.
-
-### Downloads
-
-The virtualhost config enables this directory to be used along with apaches x-sendfile module.
-
-### Logs
-
-The collected logs will be automatically rotated on a daily basis using ubuntus `logrotate` mechanism. Files will be
-kept for 7 days.
-
-### Temp
-
-The php.ini variables `sys_temp_dir` and `upload_tmp_dir` are pointing to this directory.
-
 ## Known Bug
 
-When encountering problems connecting to the box in any other way than `vagrant ssh` (for example ssh using username and
-password), check this known bug. It has to do with the generated `ubuntu` user in Canonicals official box:
+You might not be able to ssh to the virtual machine using username and password. This is a know bug in Canonicals
+official Ubuntu boxes.
 
-[Default SSH login via Username/Password](https://bugs.launchpad.net/cloud-images/+bug/1569237)
+[Login via username/password](https://bugs.launchpad.net/cloud-images/+bug/1569237)
 
     vagrant ssh
     sudo passwd -d -u ubuntu
