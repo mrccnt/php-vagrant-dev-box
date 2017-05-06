@@ -133,7 +133,7 @@ Credentials:
     password: root
     database: development
 
-The database is set up to listen on public network which means we can reach the database directly without additional ssh tunnels.
+The database is set up to listen extern which means we can reach the database directly without additional ssh tunnels.
 
 ## Dev Tools
 
@@ -177,10 +177,10 @@ I prefer having a whole project root directory instead of several single applica
 
 ## Known Bug
 
-You might not be able to ssh to the virtual machine using username and password. This is a know bug in Canonicals
-official Ubuntu boxes.
+[https://bugs.launchpad.net/cloud-images/+bug/1569237](https://bugs.launchpad.net/cloud-images/+bug/1569237)
 
-[Login via username/password](https://bugs.launchpad.net/cloud-images/+bug/1569237)
+You might not be able to ssh to the virtual machine using username and password. This is a known bug in Canonicals
+official Ubuntu box. We need to reset age and password:
 
     vagrant ssh
     sudo passwd -d -u ubuntu

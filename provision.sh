@@ -3,7 +3,7 @@
 apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
 add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirror.klaus-uwe.me/mariadb/repo/10.1/ubuntu xenial main'
 
-apt-get update -y
+apt-get update
 apt-get upgrade -y
 
 apt-get -qq install -y git gettext curl vim ccze software-properties-common zip unzip rar unrar wget imagemagick ant ant-contrib crudini
@@ -72,13 +72,7 @@ mv phing-latest.phar /usr/local/bin/phing
 curl -sL https://deb.nodesource.com/setup_7.x | bash -
 apt-get -qq install -y nodejs
 
-# npm install -g grunt-cli
-
-# composer install --no-progress --no-suggest --optimize-autoloader --working-dir /var/www/development/app/api
-# composer install --no-progress --no-suggest --optimize-autoloader --working-dir /var/www/development/app/application
-
-clear
-
+echo ""
 echo "---------------------------------------------------------"
 echo "http://localhost:8080"
 echo "---------------------------------------------------------"
