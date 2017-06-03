@@ -1,6 +1,7 @@
 /.idea
 /*.log
 /.vagrant
+/configs/certs
 /cache/*
 /downloads/*
 /log/*

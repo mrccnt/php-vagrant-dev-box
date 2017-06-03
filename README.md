@@ -6,20 +6,16 @@ installation guide on how to set up all those things.
     VBox Name:  PHP Developer Box
     Base Box:   ubuntu/xenial64 (Official Ubuntu)
     Hostname:   development.dev
-    RAM:        2048 MB
+    RAM:        4096 MB
     CPUs:       2
-    
-## PHP 7.0
 
-    $ php -v
-    PHP 7.0.15-0ubuntu0.16.04.4 (cli) ( NTS )
-    Copyright (c) 1997-2017 The PHP Group
-    Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
-        with Zend OPcache v7.0.15-0ubuntu0.16.04.4, Copyright (c) 1999-2017, by Zend Technologies
+After the box is up `vagrant ssh` to the machine and get assigned ip address via `ifconfig`. Now modify your hostsfile
+and point to `development.dev`. Finally visit [https://development.dev](https://development.dev) in your browser.
+
+## PHP 7.0
 
 Along with the default modules, some  extra modules including php-imagick, apcu and apcu_bc are available:
 
-    $ php -m
     [PHP Modules]
     apc
     apcu
@@ -85,10 +81,6 @@ Along with the default modules, some  extra modules including php-imagick, apcu 
 
 ## Apache 2.4
 
-    $ apache2 -v
-    Server version: Apache/2.4.18 (Ubuntu)
-    Server built:   2016-07-14T12:32:26
-
 The following modules are enabled:
 
     access_compat.load -> ../mods-available/access_compat.load
@@ -124,16 +116,13 @@ The following modules are enabled:
 
 ## MariaDB 10.1
 
-    $ mysql --version
-    mysql  Ver 15.1 Distrib 10.1.22-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2
+MariaDB is set up to listen public which means we can reach the database directly without additional ssh tunnels.
 
 Credentials:
 
     username: root
     password: root
     database: development
-
-The database is set up to listen extern which means we can reach the database directly without additional ssh tunnels.
 
 ## Dev Tools
 
@@ -170,7 +159,7 @@ I prefer having a whole project root directory instead of several single applica
     │   └── application
     │       ├── public
     │       └── src
-    ├── cache
+    ├── configs
     ├── downloads
     ├── log
     └── temp
