@@ -1,6 +1,6 @@
 {
   "name": "example/application",
-  "description": "My example applications vagrant developer box",
+  "description": "My example application",
   "license": "MIT",
   "authors": [
     {
@@ -13,7 +13,7 @@
     "what",
     "ever"
   ],
-  "homepage": "http://example.com",
+  "homepage": "https://development.dev",
   "require": {
     "php": ">=5.5.0 || >=7.0.0"
   },
