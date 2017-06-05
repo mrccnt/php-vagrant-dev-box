@@ -45,35 +45,11 @@
         <exclude name="composer.*"/>
     </fileset>
 
-    <target name="bootstrap"
-            hidden="true"
-            depends="
-            precheck,
-            make:dist,
-            report:lint"
-    />
-    <target name="build"
-            depends="
-            bootstrap,
-            composer,
-            zip,
-            clear:temp,
-            clear:lint"
-    />
-    <target name="report"
-            depends="
-            bootstrap,
-            create:reports,
-            clear:temp"
-    />
-    <target name="full"
-            depends="
-            bootstrap,
-            create:reports,
-            composer,
-            zip,
-            clear:temp"
-    />
+    <target name="full" depends="bootstrap,create:reports,composer,zip,clear:temp"/>
+    <target name="build" depends="bootstrap,composer,zip,clear:temp,clear:lint"/>
+    <target name="report" depends="bootstrap,create:reports,clear:temp"/>
+
+    <target name="bootstrap" hidden="true" depends="precheck,make:dist,report:lint"/>
     <target name="create:reports"
             hidden="true"
             depends="
@@ -94,18 +70,12 @@
                 <fail msg="No valid mode is set"/>
             </then>
         </if>
-
-        <!-- May check a given environment variable / config -->
-        <!--
-        <php expression="file_exists('config/autoload/${env}.php');" returnProperty="check.exists"/>
         <if>
-            <equals arg1="${check.exists}" arg2="false"/>
+            <equals arg1="${env}" arg2=""/>
             <then>
-                <fail msg="No valid environment is set"/>
+                <fail msg="No environment is set"/>
             </then>
         </if>
-        -->
-
     </target>
 
     <target name="make:dist" depends="clear:dist" hidden="true">
